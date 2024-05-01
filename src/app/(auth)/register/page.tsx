@@ -1,12 +1,21 @@
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { GithubIcon } from "lucide-react"
 import Link from "next/link"
 import React from "react"
-import GoogleIcon from "../../../../public/google.svg"
-import Image from "next/image"
+import GithubButton from "@/app/components/GithubButton"
+import GoogleButton from "@/app/components/GoogleButton"
+import { authOptions } from "@/app/utils/auth"
+import { getServerSession } from "next-auth"
+import { redirect } from "next/navigation"
 
-const Register = () => {
+const Register = async () => {
+  const session = await getServerSession(authOptions)
+  console.log(session)
+
+  if (session) {
+    redirect("/home")
+  }
+
   return (
     <div className="mt-24 rounded bg-black/80 py-10 px-6 md:mt-0 md:max-w-sm md:px-14">
       <form action="">
@@ -18,12 +27,7 @@ const Register = () => {
             placeholder="Email"
             className="w-full bg-[#333] placeholder:text-xs placeholder:text-gray-400 inline-block"
           />
-          {/* <Input
-            type="password"
-            name="password"
-            placeholder="Password"
-            className="w-full bg-[#333] placeholder:text-xs placeholder:text-gray-400 inline-block"
-          /> */}
+
           <Button type="submit" variant={"destructive"} className="w-full bg-[#e50914]">
             Sign Up
           </Button>
@@ -38,12 +42,8 @@ const Register = () => {
       </div>
 
       <div className="flex w-full justify-center items-center gap-x-6">
-        <Button variant={"outline"} className="w-1/5 mt-4 gap-2">
-          <GithubIcon className="w-5 h-5" />
-        </Button>
-        <Button variant={"outline"} className="w-1/5 mt-4 gap-2">
-          <Image src={GoogleIcon} alt="google" className="w-7" />
-        </Button>
+        <GithubButton />
+        <GoogleButton />
       </div>
     </div>
   )
