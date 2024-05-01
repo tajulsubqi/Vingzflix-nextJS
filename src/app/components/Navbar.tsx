@@ -24,7 +24,7 @@ const Navbar = () => {
   const pathName = usePathname()
 
   return (
-    <div className="w-full mx-auto items-center justify-between px-5 sm:px-6 py-5 lg:px-8 flex">
+    <nav className="w-full mx-auto items-center justify-between px-5 sm:px-6 py-5 lg:px-8 flex">
       <div className="flex items-center">
         <Link href={"/home"} className="w-32 md:w-40">
           <Image src={logo} alt="logo" priority />
@@ -61,7 +61,7 @@ const Navbar = () => {
         <Bell className="w-5 h-5 md:w-7 md:h-7 text-gray-300 cursor-pointer" />
         <UserNav />
       </div>
-    </div>
+    </nav>
   )
 }
 

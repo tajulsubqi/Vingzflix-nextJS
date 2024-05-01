@@ -3,8 +3,8 @@ import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import React from "react"
 import GoogleIcon from "../../../public/google.svg"
-import { signIn } from "next-auth/react"
 import { redirect } from "next/navigation"
+import { signIn } from "next-auth/react"
 
 const GoogleButton = () => {
   const googleSignIn = () => {

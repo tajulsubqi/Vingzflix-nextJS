@@ -2,8 +2,8 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import Link from "next/link"
 import React from "react"
-import GithubButton from "@/app/components/GithubButton"
-import GoogleButton from "@/app/components/GoogleButton"
+import GithubButton from "@/app/components/utilities/GithubButton"
+import GoogleButton from "@/app/components/utilities/GoogleButton"
 import { authOptions } from "@/app/utils/auth"
 import { getServerSession } from "next-auth"
 import { redirect } from "next/navigation"
@@ -18,7 +18,7 @@ const Register = async () => {
 
   return (
     <div className="mt-24 rounded bg-black/80 py-10 px-6 md:mt-0 md:max-w-sm md:px-14">
-      <form action="">
+      <form method="post" action="/api/auth/signin">
         <h1 className="text-3xl font-semibold text-white">Sign Up</h1>
         <div className="space-y-4 mt-5">
           <Input
