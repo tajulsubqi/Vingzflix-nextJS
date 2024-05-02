@@ -2,7 +2,7 @@
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import React from "react"
-import GoogleIcon from "../../../public/google.svg"
+import GoogleIcon from "../../../../public/google.svg"
 import { redirect } from "next/navigation"
 import { signIn } from "next-auth/react"
 

@@ -1,10 +1,10 @@
 import { getServerSession } from "next-auth"
-import { authOptions } from "../utils/auth"
 import { redirect } from "next/navigation"
 import Navbar from "../components/Navbar"
+import authOptions from "../utils/auth"
 
 const HomeLayout = async ({ children }: { children: React.ReactNode }) => {
-  const session = await getServerSession(authOptions as any)
+  const session = await getServerSession(authOptions)
   if (!session) {
     redirect("/login")
   }
@@ -12,7 +12,7 @@ const HomeLayout = async ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <Navbar />
-      <main className="w-full max-w-7xl mx-auto sm:px-6 lg:8">{children}</main>
+      <main className="w-full mx-auto sm:px-8 lg:8 ">{children}</main>
     </>
   )
 }

@@ -8,26 +8,36 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { signOut } from "next-auth/react"
+import { signIn, signOut, useSession } from "next-auth/react"
 
 const UserNav = () => {
+  const { data: session, status } = useSession() // Mendapatkan data sesi
+
+  if (status === "loading") {
+    return <div>Loading...</div>
+  }
+
+  if (!session) {
+    return <button onClick={() => signIn()}>Sign in</button>
+  }
+
   return (
     <div>
       <DropdownMenu>
         <DropdownMenuTrigger>
-          {/* <Button variant={"ghost"} className="relative h-10 w-10 rounded-full"> */}
           <Avatar className="h-10 w-10 rounded-full">
-            <AvatarImage src="https://eilauhzzdczukxqjbmtj.supabase.co/storage/v1/object/public/user%20image/avatar.png" />
+            <AvatarImage src={session.user?.image as string} />
             <AvatarFallback className="rounded-full">Jan</AvatarFallback>
           </Avatar>
-          {/* </Button> */}
         </DropdownMenuTrigger>
 
         <DropdownMenuContent className="w-56" align="end" forceMount>
           <DropdownMenuLabel>
             <div className="flex flex-col space-y-1">
-              <p className="text-full font-semibold leading-none">Jan</p>
-              <p className="text-xs leading-none text-muted-foreground">Jan@mailcom</p>
+              <p className="text-full font-semibold leading-none">{session.user?.name}</p>
+              <p className="text-xs leading-none text-muted-foreground">
+                {session.user?.email}
+              </p>
             </div>
           </DropdownMenuLabel>
           <DropdownMenuSeparator />

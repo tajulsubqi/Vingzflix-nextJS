@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button"
 import { Heart, PlayCircle } from "lucide-react"
 import PlayVideoModal from "./PlayVideoModal"
 import { useState } from "react"
+import { usePathname } from "next/navigation"
+import { addToWatchList, deleteFromWatchList } from "../action"
 
 interface MovieCardProps {
   movieId: number
@@ -10,17 +12,27 @@ interface MovieCardProps {
   title: string
   watchListId: string
   watchList: boolean
-  youtuber: string
+  youtubeUrl: string
   age: number
   time: number
   year: number
 }
 
 const MovieCard = (Props: MovieCardProps) => {
-  const { movieId, overview, title, watchListId, watchList, youtuber, age, time, year } =
-    Props
+  const {
+    movieId,
+    overview,
+    title,
+    watchListId,
+    watchList,
+    youtubeUrl,
+    age,
+    time,
+    year,
+  } = Props
 
   const [open, setOpen] = useState(false)
+  const pathName = usePathname()
 
   return (
     <>
@@ -30,13 +42,17 @@ const MovieCard = (Props: MovieCardProps) => {
 
       <div className="absolute top-5 right-5 z-10">
         {watchList ? (
-          <form>
+          <form action={deleteFromWatchList}>
+            <input type="hidden" name="watchListId" value={watchListId} />
+            <input type="hidden" name="pathname" value={pathName} />
             <Button variant="outline" size="icon">
               <Heart className="w-4 h-4 text-red-500" />
             </Button>
           </form>
         ) : (
-          <form>
+          <form action={addToWatchList}>
+            <input type="hidden" name="movieId" value={movieId} />
+            <input type="hidden" name="pathname" value={pathName} />
             <Button variant="outline" size="icon">
               <Heart className="w-4 h-4" />
             </Button>
@@ -58,7 +74,7 @@ const MovieCard = (Props: MovieCardProps) => {
       <PlayVideoModal
         title={title}
         overview={overview}
-        youtubeUrl={youtuber}
+        youtubeUrl={youtubeUrl}
         open={open}
         setOpen={setOpen}
         age={age}

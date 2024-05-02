@@ -5,11 +5,11 @@ import React from "react"
 import GithubButton from "@/app/components/utilities/GithubButton"
 import GoogleButton from "@/app/components/utilities/GoogleButton"
 import { getServerSession } from "next-auth"
-import { authOptions } from "@/app/utils/auth"
 import { redirect } from "next/navigation"
+import authOptions from "@/app/utils/auth"
 
 const Login = async () => {
-  const session = await getServerSession(authOptions as any)
+  const session = await getServerSession(authOptions)
   console.log(session)
 
   if (session) {
@@ -35,7 +35,7 @@ const Login = async () => {
       </form>
 
       <div className="text-sm text-gray-400 mt-2">
-        New to Netflix?
+        New to Vingzflix?
         <Link href="/register" className="ml-1 text-white hover:underline">
           Sign Up Now!
         </Link>

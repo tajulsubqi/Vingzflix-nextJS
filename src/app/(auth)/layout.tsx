@@ -1,7 +1,7 @@
 import Image from "next/image"
 import React from "react"
 import Background from "../../../public/login_background.jpg"
-import Logo from "../../../public/netflix_logo.svg"
+import Logo from "../../../public/vingzflix.png"
 
 const AuthLayout = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -17,8 +17,8 @@ const AuthLayout = ({ children }: { children: React.ReactNode }) => {
       <Image
         src={Logo}
         alt="logo"
-        width={120}
-        height={120}
+        width={200}
+        height={200}
         priority
         className="absolute left-4 top-4 object-contain md:left-10 md:top-6"
       />

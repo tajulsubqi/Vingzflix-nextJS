@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation"
-import { authOptions } from "./utils/auth"
 import { getServerSession } from "next-auth"
+import authOptions from "./utils/auth"
 
 const Page = async () => {
   const session = await getServerSession(authOptions)

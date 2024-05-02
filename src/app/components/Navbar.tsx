@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import logo from "../../../public/netflix_logo.svg"
+import logo from "../../../public/vingzflix.png"
 import { usePathname } from "next/navigation"
 import { Bell, Search } from "lucide-react"
 import UserNav from "./UserNav"
@@ -26,7 +26,7 @@ const Navbar = () => {
   return (
     <nav className="w-full mx-auto items-center justify-between px-5 sm:px-6 py-5 lg:px-8 flex">
       <div className="flex items-center">
-        <Link href={"/home"} className="w-32 md:w-40">
+        <Link href={"/home"} className="w-42 md:w-44">
           <Image src={logo} alt="logo" priority />
         </Link>
         <ul className="lg:flex gap-x-4 ml-14 hidden">

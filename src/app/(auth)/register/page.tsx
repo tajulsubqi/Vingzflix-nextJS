@@ -4,9 +4,9 @@ import Link from "next/link"
 import React from "react"
 import GithubButton from "@/app/components/utilities/GithubButton"
 import GoogleButton from "@/app/components/utilities/GoogleButton"
-import { authOptions } from "@/app/utils/auth"
 import { getServerSession } from "next-auth"
 import { redirect } from "next/navigation"
+import authOptions from "@/app/utils/auth"
 
 const Register = async () => {
   const session = await getServerSession(authOptions)
