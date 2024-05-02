@@ -10,7 +10,7 @@
 
 ## Teknologi
 
-- Frontend: Next.js, Tailwind CSS, Chakra UI
+- Frontend: Next.js, Tailwind CSS, Shadcn UI
 - Backend: Prisma
 - Database: Supabase
 - Autentikasi: NextAuth
