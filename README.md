@@ -57,12 +57,12 @@ You can see a demo of this project at [https://vingzflix.vercel.app](https://vin
   </tr>
 
   <tr>
-   <td><img src="./public/screenshots/mobile-1.png" alt="App Screenshot" width="100%"></td>
-    <td><img src="./public/screenshots/mobile-2.png" alt="App Screenshot" width="100%"></td>
+   <td><img src="./public/screenshots/mobile-1.png" alt="App Screenshot" width="70%"></td>
+    <td><img src="./public/screenshots/mobile-2.png" alt="App Screenshot" width="70%"></td>
   </tr>
-  
+
   <tr>
-   <td><img src="./public/screenshots/mobile-3.png" alt="App Screenshot" width="100%"></td>
+   <td><img src="./public/screenshots/mobile-3.png" alt="App Screenshot" width="70%"></td>
   </tr>
 
 </table>
