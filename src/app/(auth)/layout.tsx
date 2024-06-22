@@ -20,7 +20,7 @@ const AuthLayout = ({ children }: { children: React.ReactNode }) => {
         width={200}
         height={200}
         priority
-        className="absolute left-4 top-4 object-contain md:left-10 md:top-6"
+        className="w-32 absolute left-4 top-4 object-contain md:left-10 md:top-6"
       />
       {children}
     </div>
